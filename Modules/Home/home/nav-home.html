@@ -1,0 +1,43 @@
+<!--导航2-->
+<div id="m-post-list" class="col-xs-12 col-sm-9 col-md-7" style="overflow: hidden; border-right-color: rgb(238, 238, 238);overflow: scroll;height: 650px;">
+    <article ng-repeat="value in list" id="m-list-post-9" class="post tag-tong-ji-jiao-ben published current-selected-post animated fadeInLeft" style="animation-duration: 0.4s; animation-timing-function: ease-in-out;">
+        <div class="post-wrap">
+            <h2 class="post-title">
+                <a ui-sref="home.detail({id:value.id})" ng-bind="value.title"></a>
+            </h2>
+            <div class="post-content hidden-xs">
+                <p ng-bind="value.des|length"></p>
+            </div>
+            <div class="post-metadata hidden-xs">
+                <ul class="list-inline clearfix">
+                    <li class="meta-date">
+                        <i class="glyphicon glyphicon-calendar">
+                            <span ng-bind="value.date"></span>
+                        </i>
+                    </li>
+                    <li class="meta-author">
+                        <i class="glyphicon glyphicon-user"></i>
+                            <span>
+                            <a href="/author/pi/" style=" font-size: 12px;" ng-bind="value.author"></a>
+                            </span>
+                    </li>
+                    <li class="meta-tags">
+                        <i class="glyphicon glyphicon-tag">
+                            <span>
+                            <a href="/tag/tong-ji-jiao-ben/">统计脚本</a>
+                            </span>
+                        </i>
+                    </li>
+                    <li class="meta-comments">
+                        <i class="glyphicon glyphicon-pencil">
+                            <span>
+                            <a href="#comment">查看评论</a>
+                            </span>
+                        </i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </article>
+
+</div>

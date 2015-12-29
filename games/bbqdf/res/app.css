@@ -1,0 +1,16 @@
+.btn-danger2 {
+    background-color: #5a4c4b;
+    border-color: #5a4c4b;
+    color: #fff;
+}
+.btn-danger {
+    background-color: #f08c86;
+    border-color: #f08c86;
+    color: #fff;
+}
+.btn-block {
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+}
