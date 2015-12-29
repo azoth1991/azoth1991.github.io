@@ -50,7 +50,7 @@ var pJS = function(tag_id, params){
         anim: {
           enable: false,
           speed: 2,
-          opacity_min: 0,
+          opacity_min: 1,
           sync: false
         }
       },
@@ -192,7 +192,6 @@ var pJS = function(tag_id, params){
 
     pJS.canvas.el.width = pJS.canvas.w;
     pJS.canvas.el.height = pJS.canvas.h;
-
     if(pJS && pJS.interactivity.events.resize){
 
       window.addEventListener('resize', function(){
@@ -521,7 +520,12 @@ var pJS = function(tag_id, params){
       /* move the particle */
       if(pJS.particles.move.enable){
         var ms = pJS.particles.move.speed/2;
-        p.x += 10;
+        if(pJS.particles.side == 1){
+          p.x += 10;
+        } else {
+          p.x -= 10;
+        }
+
         //p.y += p.vy * ms;
       }
 
