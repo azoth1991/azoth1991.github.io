@@ -1,0 +1,56 @@
+#bgImage {
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+}
+/*#bgImage > div.text {*/
+    /*animation: 20s linear 0s normal none infinite running scrollRight;*/
+    /*background-image: url("../img/flow_text.png");*/
+/*}*/
+#bgImage > div.white {
+    animation: 20s linear 0s normal none infinite running scrollRight;
+    background-image: url("../img/flow_white.png");
+}
+#bgImage > div.white2 {
+    animation: 40s ease 0s normal none infinite running scrollLeft;
+    background-image: url("../img/flow_white.png");
+    opacity: 0.3;
+}
+#bgImage > div.blue {
+    animation: 15s linear 0s normal none infinite running scrollLeft;
+    background-image: url("../img/flow_blue.png");
+}
+#bgImage > div.blue2 {
+    animation: 30s linear 0s normal none infinite running scrollRight;
+    background-image: url("../img/flow_blue.png");
+    opacity: 0.8;
+}
+#bgImage > div {
+    background-position: left 75%;
+    background-repeat: repeat-x;
+    background-size: 100vw auto;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+@keyframes scrollLeft {
+    100% {
+        background-position: -100vw 75%;
+    }
+}
+@keyframes scrollRight {
+    100% {
+        background-position: 100vw 75%;
+    }
+}
+#bgImage > div {
+    background-position: left 75%;
+    background-repeat: repeat-x;
+    background-size: 100vw auto;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+body{
+    background-color: rgb(89, 89, 89);
+}
