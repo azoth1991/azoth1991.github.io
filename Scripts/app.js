@@ -14,7 +14,10 @@ angular
             templateUrl:'Modules/Home/home/nav-home.html',
             controller:'homeController'
           },
-          "body@home":{templateUrl:'Modules/Home/home/detail.html'}
+          "body@home":{
+            templateUrl:'Modules/Home/home/detail.html',
+            controller:'detail.homeController'
+          }
         }
       });
     //about

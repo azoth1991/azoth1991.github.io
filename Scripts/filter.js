@@ -28,4 +28,9 @@ angular.module('myFilter',[])
       return date.getTime()/1000;
     }
   })
+  .filter('to_trusted', ['$sce', function($sce){
+    return function(text) {
+      return $sce.trustAsHtml(text);
+    }
+  }])
 ;

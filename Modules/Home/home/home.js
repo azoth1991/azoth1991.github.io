@@ -17,7 +17,9 @@ angular.module('home',[])
   .controller('homeController',['$scope','homeService',function($scope,homeService){
     $scope.list = homeService.getList();
   }])
-  .controller('detail.homeController',['$scope','homeService','$stateParams',function($scope,homeService,$stateParams){
-    $scope.detail = homeService.getByID($stateParams.id);
+  .controller('detail.homeController',['$scope','homeService','$stateParams','$sce',function($scope,homeService,$stateParams,$sce){
+    var id=0;
+    if($stateParams.id!=undefined) id=$stateParams.id;
+    $scope.detail = homeService.getByID(id);
   }])
 ;

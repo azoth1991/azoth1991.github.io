@@ -4,54 +4,30 @@
     <div class="row">
         <div class="col-lg-11 col-md-11 col-sm-12 m-post-container" style="height: auto;">
             <article id="post-9" class="post tag-tong-ji-jiao-ben published animated fadeInUp" style="animation-duration: 0.6s; animation-timing-function: ease-in-out;">
-                <h2 class="post-title">构建易于扩展的前端统计脚本</h2>
+                <h2 class="post-title" ng-bind="detail.title"></h2>
                 <div class="metadata">
                     <ul class="list-inline clearfix">
                         <li class="meta-date">
                             <i class="glyphicon glyphicon-calendar">
-                                <span>2个月前</span>
-                            </i>
-                        </li>
-                        <li class="meta-author">
-                            <i class="glyphicon glyphicon-user">
-                                        <span>
-                                        <a title="坏蛋" href="/author/pi/" style=" font-size: 12px;">坏蛋</a>
-                                        </span>
+                                <span ng-bind="detail.date"></span>
                             </i>
                         </li>
                         <li class="meta-tags">
                             <i class="glyphicon glyphicon-tag">
                                         <span>
-                                        <a href="/tag/tong-ji-jiao-ben/">统计脚本</a>
-                                        </span>
-                            </i>
-                        </li>
-                        <li class="meta-comments">
-                            <i class="glyphicon glyphicon-pencil">
-                                        <span>
-                                        <a href="#comment">查看评论</a>
+                                        <a ng-repeat="value in detail.tag" ng-bind="value"></a>
                                         </span>
                             </i>
                         </li>
                     </ul>
                 </div>
-                <div class="post-content">
-                    <p>
-                        博客计划更新下，阅读样式不太爽，暂时先发到这里，原文地址：
-                        <a href="http://www.soulteary.com/2015/09/21/build-scalable-analytics-script.html">http://www.soulteary.com/2015/09/21/build-scalable-analytics-script.html </a>
-                    </p>
-                    <h1>构建易于扩展的前端统计脚本</h1>
-                    <p>抛砖引玉，简单聊聊前端统计的方案。</p>
+                <div class="post-content" data-ng-bind-html="detail.content|to_trusted">
                 </div>
             </article>
             <div class="ds-comments">
-                <div class="ds-comment-header">头</div>
-                <div class="ds-comment-body">
-                    <div class="ds-comments-info">fasdfasdf</div>
-                </div>
                 <p class="clearfix">
                             <span class="pull-right go-top">
-                            <i class="fa fa-arrow-circle-o-up"></i>
+                            <i class="glyphicon glyphicon-arrow-up"></i>
                             返回顶部
                             </span>
                 </p>
