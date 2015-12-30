@@ -19,7 +19,14 @@ angular.module('home',[])
   }])
   .controller('detail.homeController',['$scope','homeService','$stateParams','$sce',function($scope,homeService,$stateParams,$sce){
     var id=0;
-    if($stateParams.id!=undefined) id=$stateParams.id;
+    if($stateParams.id!=undefined) id=$stateParams.id-1;
     $scope.detail = homeService.getByID(id);
+  }])
+  .controller('tag.homeController',['$scope','homeService',function($scope,homeService){
+    $scope.taglist = homeService.getTag();
+    $scope.timeList = homeService.getDate();
+    console.log($scope.timeList);
+
+
   }])
 ;

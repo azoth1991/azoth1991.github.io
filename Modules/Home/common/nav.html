@@ -24,10 +24,7 @@
                 <div class="tag">
                     <div class="tag-header">
                         <ul>
-                            <li><a href="">前端(1)</a></li>
-                            <li><a href="">php(1)</a></li>
-                            <li><a href="">nodejs(1)</a></li>
-                            <li><a href="">angularjs(1)</a></li>
+                            <li ng-repeat="value in taglist"><a href="" ng-bind="value.name+'('+value.num+')'"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -35,10 +32,7 @@
                 <div class="date">
                     <div class="date-header">
                         <ul>
-                            <li><a href="">2015年1月(1)</a></li>
-                            <li><a href="">2015年2月(1)</a></li>
-                            <li><a href="">2015年3月(1)</a></li>
-                            <li><a href="">2015年4月(1)</a></li>
+                            <li ng-repeat="value in timeList"><a href="" ng-bind="value.name+'('+value.num+')'"></a></li>
                         </ul>
                     </div>
                 </div>

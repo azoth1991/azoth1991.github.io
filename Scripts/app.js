@@ -9,7 +9,10 @@ angular
         url:"/home",
         views:{
           "":{templateUrl:'Modules/Home/common/home.html'},
-          "nav@home":{templateUrl:'Modules/Home/common/nav.html'},
+          "nav@home":{
+            templateUrl:'Modules/Home/common/nav.html',
+            controller:'tag.homeController'
+          },
           "nav-s@home":{
             templateUrl:'Modules/Home/home/nav-home.html',
             controller:'homeController'
