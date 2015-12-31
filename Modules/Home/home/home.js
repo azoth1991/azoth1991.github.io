@@ -26,7 +26,5 @@ angular.module('home',[])
     $scope.taglist = homeService.getTag();
     $scope.timeList = homeService.getDate();
     console.log($scope.timeList);
-
-
   }])
 ;

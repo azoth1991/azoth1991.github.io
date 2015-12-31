@@ -29,7 +29,10 @@ angular
         url:"/about",
         views:{
           "":{templateUrl:'Modules/Home/common/home.html'},
-          "nav@about":{templateUrl:'Modules/Home/common/nav.html'},
+          "nav@about":{
+            templateUrl:'Modules/Home/common/nav.html',
+            controller:'tag.homeController'
+          },
           "nav-s@about":{templateUrl:'Modules/Home/about/nav-about.html'},
           "body@about":{templateUrl:'Modules/Home/about/detail.html'}
         }
@@ -40,7 +43,10 @@ angular
         url:"/connect",
         views:{
           "":{templateUrl:'Modules/Home/common/home.html'},
-          "nav@connect":{templateUrl:'Modules/Home/common/nav.html'},
+          "nav@connect":{
+            templateUrl:'Modules/Home/common/nav.html',
+            controller:'tag.homeController'
+          },
           "nav-s@connect":{templateUrl:'Modules/Home/connect/nav-connect.html'},
           "body@connect":{templateUrl:'Modules/Home/connect/detail.html'}
         }
@@ -62,5 +68,5 @@ angular
         });
       }
     };
-  }]);
+  }])
 ;
