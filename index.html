@@ -26,13 +26,15 @@
 <script src="Vendor/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="Vendor/angular-local-storage-master/dist/angular-local-storage.min.js"></script>
 <!--背景特效-->
- <script src="Vendor/particles/particles.min.js"></script>
-<!--<script src="Vendor/particles/particles.js"></script>-->
+ <!--<script src="Vendor/particles/particles.min.js"></script>-->
+<script src="Vendor/particles/particles.js"></script>
 <script>
     $('a').css('textDecoration','');
 particlesJS('particles',
-
     {
+        'lan':'cn',
+        'list':['电信','yidong','asdfasdf','asdfasdf','asdfasdf','asfasdfa','234000'],
+        'list_cn':['电信','yidong','asdfasdf','asdfasdf','asdfasdf','asfasdfa','234000'],
         "particles": {
             "number": {
                 "value": 80,
@@ -52,11 +54,6 @@ particlesJS('particles',
                 },
                 "polygon": {
                     "nb_sides": 5
-                },
-                "image": {
-                    "src": "img/github.svg",
-                    "width": 100,
-                    "height": 100
                 }
             },
             "opacity": {
