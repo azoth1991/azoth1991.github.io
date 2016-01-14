@@ -14,12 +14,15 @@ angular.module('api',[])
       getTag:function(){
         var tagList = [{name:data[0].tag,num:1}];
         for (var i =1;i<data.length;i++){
+          var isshow = 0;
           for(var j=0;j<tagList.length;j++){
             if(data[i].tag == tagList[j].name ){
               tagList[j].num++;
-            } else {
-              tagList.push({name:data[i].tag,num:1})
+              isshow =1;
             }
+          }
+          if(isshow==0){
+            tagList.push({name:data[i].tag,num:1});
           }
         }
         return tagList;
@@ -27,12 +30,15 @@ angular.module('api',[])
       getDate:function(){
         var dateList = [{name:data[0].date,num:1}];
         for (var i =1;i<data.length;i++){
+          var isshow = 0;
           for(var j=0;j<dateList.length;j++){
             if(data[i].date == dateList[j].name ){
               dateList[j].num++;
-            } else {
-              dateList.push({name:data[i].date,num:1})
+              isshow =1;
             }
+          }
+          if(isshow==0){
+            dateList.push({name:data[i].date,num:1});
           }
         }
         return dateList;
