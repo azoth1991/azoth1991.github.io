@@ -1,6 +1,6 @@
 'use strict';
 angular
-  .module('app', ['ui.router','ngResource','home','api','myFilter'])
+  .module('app', ['ui.router','ngResource','home','api','myFilter','tag'])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.when("","/home");
     //home
@@ -14,11 +14,11 @@ angular
             controller:'tag.homeController'
           },
           "nav-s@home":{
-            templateUrl:'Modules/Home/home/nav-home.html',
+            templateUrl:'Modules/Home/common/nav-home.html',
             controller:'homeController'
           },
           "body@home":{
-            templateUrl:'Modules/Home/home/detail.html',
+            templateUrl:'Modules/Home/common/detail.html',
             controller:'detail.homeController'
           }
         }
@@ -49,6 +49,26 @@ angular
           },
           "nav-s@connect":{templateUrl:'Modules/Home/connect/nav-connect.html'},
           "body@connect":{templateUrl:'Modules/Home/connect/detail.html'}
+        }
+      });
+    //tag
+    $stateProvider
+      .state('tag', {
+        url:"/tag/:tag",
+        views:{
+          "":{templateUrl:'Modules/Home/common/home.html'},
+          "nav@tag":{
+            templateUrl:'Modules/Home/common/nav.html',
+            controller:'tag.homeController'
+          },
+          "nav-s@tag":{
+            templateUrl:'Modules/Home/common/nav-home.html',
+            controller:'tagController'
+          },
+          "body@tag":{
+            templateUrl:'Modules/Home/common/detail.html',
+            controller:'detail.tagController'
+          }
         }
       });
   }])

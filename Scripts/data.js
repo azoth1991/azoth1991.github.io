@@ -22,9 +22,18 @@ var data = function(){
       title:'博客开发过程',
       des:'博客开发，算是第一篇技术分享',
       author:'azoth',
-      date:'2016-1-14',
+      date:'2016-01-14',
       tag:'技术',
       content:'<p>简单说一下这个博客是怎么开发的</p><p><br/></p><p>一、使用的技术</p><p>angularjs jq particles.js（背景） 百度富文本编辑器（填文章），主要生产工具为ng</p><p><br/></p><p><br/></p><p>二、模块划分</p><p>主要分为 about common connect home 四大块，common为共用模块，其余为业务模块</p><p><br/></p><p><br/></p><p>三、数据构成</p><pre class="brush:js;toolbar:false">{ &nbsp;&nbsp;id:3, &nbsp;&nbsp;title:&#39;构建易于扩展的前端统计脚本&#39;, &nbsp;&nbsp;des:&#39;博客计划更新下，阅读样式不太&#39;, &nbsp;&nbsp;author:&#39;azoth&#39;, &nbsp;&nbsp;date:&#39;2016-1-1&#39;, &nbsp;&nbsp;tag:&#39;总结&#39;, &nbsp;&nbsp;content:&#39;&lt;p&gt;待定&lt;/p&gt;&#39;}</pre><p>数据放在data.js中，文章内容通过百度编辑器编辑，然后转义，tag和日期date是算法计算的，然后用ng的工厂导出结果。</p><p><br/></p><p>四、loading图</p><p>自习看右上角有个loading的小图标，是用ng的指令做的，监听了scope的变化</p><p><br/></p><p>五、过滤器</p><p>文章长度，ng的filter模块</p><p><br/></p><p>总结：</p><p>项目由ng架构，ng的常用模块除了$resource $q provider没用上，其他基本用上，而且都比较简单，算是比较好的入门项目。以后会经常更新博客，这篇算是第一篇技术博客。<br/></p>'
+    },
+    {
+      id:3,
+      title:'博客开发过程asf',
+      des:'博客开发，算是第一篇技术分享',
+      author:'azoth',
+      date:'2016-01-14',
+      tag:'技术',
+      content:'<p>简单说一下asf这个博客是怎么开发的</p><p><br/></p><p>一、使用的技术</p><p>angularjs jq particles.js（背景） 百度富文本编辑器（填文章），主要生产工具为ng</p><p><br/></p><p><br/></p><p>二、模块划分</p><p>主要分为 about common connect home 四大块，common为共用模块，其余为业务模块</p><p><br/></p><p><br/></p><p>三、数据构成</p><pre class="brush:js;toolbar:false">{ &nbsp;&nbsp;id:3, &nbsp;&nbsp;title:&#39;构建易于扩展的前端统计脚本&#39;, &nbsp;&nbsp;des:&#39;博客计划更新下，阅读样式不太&#39;, &nbsp;&nbsp;author:&#39;azoth&#39;, &nbsp;&nbsp;date:&#39;2016-1-1&#39;, &nbsp;&nbsp;tag:&#39;总结&#39;, &nbsp;&nbsp;content:&#39;&lt;p&gt;待定&lt;/p&gt;&#39;}</pre><p>数据放在data.js中，文章内容通过百度编辑器编辑，然后转义，tag和日期date是算法计算的，然后用ng的工厂导出结果。</p><p><br/></p><p>四、loading图</p><p>自习看右上角有个loading的小图标，是用ng的指令做的，监听了scope的变化</p><p><br/></p><p>五、过滤器</p><p>文章长度，ng的filter模块</p><p><br/></p><p>总结：</p><p>项目由ng架构，ng的常用模块除了$resource $q provider没用上，其他基本用上，而且都比较简单，算是比较好的入门项目。以后会经常更新博客，这篇算是第一篇技术博客。<br/></p>'
     }
   ];
 }();

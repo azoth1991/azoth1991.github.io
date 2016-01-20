@@ -1,0 +1,38 @@
+
+<!-- 内容部分-->
+<div id="m-post" class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-8 col-lg-offset-4">
+    <div class="row">
+        <div class="col-lg-11 col-md-11 col-sm-12 m-post-container" style="height: auto;">
+            <article id="post-9" class="post tag-tong-ji-jiao-ben published animated fadeInUp" style="animation-duration: 0.6s; animation-timing-function: ease-in-out;">
+                <h2 class="post-title" ng-bind="detail.title"></h2>
+                <div class="metadata">
+                    <ul class="list-inline clearfix">
+                        <li class="meta-date">
+                            <i class="glyphicon glyphicon-calendar">
+                                <span ng-bind="detail.date"></span>
+                            </i>
+                        </li>
+                        <li class="meta-tags">
+                            <i class="glyphicon glyphicon-tag">
+                                <span>
+                                <a ng-bind="detail.tag"></a>
+                                </span>
+                            </i>
+                        </li>
+                    </ul>
+                </div>
+                <div class="post-content" data-ng-bind-html="detail.content|to_trusted">
+                </div>
+            </article>
+            <div class="ds-comments">
+                <p class="clearfix">
+                            <span class="pull-right go-top">
+                            <i class="glyphicon glyphicon-arrow-up"></i>
+                            返回顶部
+                            </span>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
