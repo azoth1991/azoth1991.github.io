@@ -10,30 +10,48 @@ var data = function(){
   return [
     {
       id:1,
-      title:'2015年总结',
-      des:'总结一年，拥抱变化',
+      title:'周文',
+      des:'屌丝程序员 麻瓜',
       author:'azoth',
       date:'2015-12-29',
-      tag:'总结',
-      content:''
+      tag:'成员介绍',
+      content:'这个人很懒,什么都不想说'
     },
     {
       id:2,
-      title:'博客开发过程',
-      des:'博客开发，算是第一篇技术分享',
+      title:'周文',
+      des:'屌丝程序员 麻瓜',
       author:'azoth',
-      date:'2016-01-14',
-      tag:'技术',
-      content:''
+      date:'2015-12-29',
+      tag:'成员介绍',
+      content:'这个人很懒,什么都不想说'
     },
     {
       id:3,
-      title:'博客开发过程asf',
-      des:'博客开发，算是第一篇技术分享',
+      title:'周文',
+      des:'屌丝程序员 麻瓜',
       author:'azoth',
-      date:'2016-01-14',
-      tag:'技术',
-      content:''
+      date:'2015-12-29',
+      tag:'成员介绍',
+      content:'这个人很懒,什么都不想说'
+    },
+    {
+      id:4,
+      title:'周文的分享',
+      des:'周文的分享',
+      author:'azoth',
+      date:'2015-12-29',
+      tag:'分享',
+      content:'等下再说'
+    },
+    {
+      id:5,
+      title:'2016-11-20 万松园西园聚餐',
+      des:'周文的分享',
+      author:'azoth',
+      date:'2015-12-29',
+      tag:'周末活动',
+      content:'大家一定要来哈'
     }
   ];
 }();
