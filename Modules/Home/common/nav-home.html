@@ -3,7 +3,7 @@
     <article ng-repeat="value in list" id="m-list-post-9" class="post tag-tong-ji-jiao-ben published current-selected-post animated fadeInLeft" style="animation-duration: 0.4s; animation-timing-function: ease-in-out;">
         <div class="post-wrap">
             <h2 class="post-title">
-                <a href="#/{{routeRoot}}/detail/{{value.id}}" ng-bind="value.title"></a>
+                <a href="#/{{routeRoot}}/{{tagname}}/{{value.id}}" ng-bind="value.title"></a>
             </h2>
             <div class="post-content hidden-xs">
                 <p ng-bind="value.des|length"></p>

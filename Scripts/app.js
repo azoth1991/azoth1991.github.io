@@ -54,7 +54,7 @@ angular
     //tag
     $stateProvider
       .state('tag', {
-        url:"/tag/:tag",
+        url:"/tag/:tag/:id",
         views:{
           "":{templateUrl:'Modules/Home/common/home.html'},
           "nav@tag":{
