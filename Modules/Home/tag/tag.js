@@ -15,6 +15,7 @@ angular.module('tag',[])
       });
   }])
   .controller('tagController',['$scope','homeService','$stateParams','$state',function($scope,homeService,$stateParams,$state){
+    $('#m-post-list').css('height', window.innerHeight);
     $scope.list = homeService.getByTag($stateParams.tag);
     $scope.routeRoot = $state.current.name;
     $scope.tagname = $stateParams.tag;
