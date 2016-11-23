@@ -18,7 +18,7 @@ angular.module('home',[])
   .controller('homeController',['$scope','homeService','$state',function($scope,homeService,$state){
     $scope.list = homeService.getList();
     $scope.routeRoot = $state.current.name;
-
+    $scope.tagname = 'detail';
   }])
   .controller('detail.homeController',['$scope','homeService','$stateParams','$sce',function($scope,homeService,$stateParams,$sce){
     var id=0;
