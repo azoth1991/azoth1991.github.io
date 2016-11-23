@@ -16,6 +16,7 @@ angular.module('home',[])
 
   }])
   .controller('homeController',['$scope','homeService','$state',function($scope,homeService,$state){
+    $('#m-post-list').css('height', window.innerHeight)
     $scope.list = homeService.getList();
     $scope.routeRoot = $state.current.name;
     $scope.tagname = 'detail';
