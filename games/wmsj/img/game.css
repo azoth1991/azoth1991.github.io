@@ -1,0 +1,4 @@
+@media all and (max-width:481px){#header{font:14px/1.5 "Helvetica neue",Helvetica,Tahoma,Arial,"\5FAE\8F6F\96C5\9ED1","\5B8B\4F53",sans-serif;height:25px;left:0;margin:0;width:100%;background-color:#EB4949; color:#FFFFFF;text-align:center;position: fixed;left: 50% !important; margin-left: -160px; width: 320px; height: 25px; top: 0;z-index:99999}#header #fenxiang{display:block}
+
+#spns { position: fixed; left: 50% !important; margin-left: -160px; width: 320px; height: 50px; top: 0; z-index: 100; }
+#spnx { position: fixed; left: 50% !important; margin-left: -160px; width: 320px; height: 50px; bottom: 0; z-index: 100; }

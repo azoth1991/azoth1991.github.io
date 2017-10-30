@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>「亡命射箭」我已经到了出神入化的地步，无人能及！</title>
+<link href="img/game.css" rel="stylesheet" type="text/css"/>
+<script src="open/js/jweixin-1.0.0.js"></script>
+<script src="jquery/1.9.1/jquery.min.js"></script>
+<script src="img/game.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0">
+<link rel="stylesheet" href="arrow/assets/css/main.css">
+<script>var _czc = _czc || [];</script>
+<link rel="stylesheet" href="img/loading.css">
+</head>
+<body>
+<div id="share" ontouchstart="document.getElementById('share').style.display='none';" onClick="document.getElementById('share').style.display='none';"> <img src="img/share.png" alt=""> </div>
+<div id="spnx"></div>
+<div class="grid" id="grid">
+  <div class="page" id="by-loading"> <img class="by-loading-bg" src="img/loading-bg.png" alt="" />
+    <div class="by-loading-txt" id="by-loading-txt">loading</div>
+  </div>
+  <div class="page" id="index"> <img class="logo" src="arrow/assets/img/logo.png" alt="亡命射箭"><img class="start" id="btn-start" src="arrow/assets/img/start.png" >
+    <div style="clear:both"></div></div>
+  <div class="page" id="game">
+    <div class="view-wrap">
+      <div id="apple" class="apple"></div>
+      <div id="score"></div>
+      <div class="people"></div>
+      <div class="bow"></div>
+      <div class="arrow"></div>
+      <div class="bar">
+        <div class="progress"> </div>
+        <div class="barLifes"> </div>
+      </div>
+    </div>
+    <div id="control"> </div>
+  </div>
+  <div class="page hide" id="gameover" >
+    <div class="info hide"> </div>
+    <div class="fail-one hide"></div>
+    <div class="fail-two hide"></div>
+    <div class="fail-three hide"></div>
+    <div class="btn-wrap">
+      <div class="btn" id="btn-restart"></div>
+      <div class="btn" id="btn-share"></div>
+    </div>
+  </div>
+  <div class="page hide" id="jd"></div>
+</div>
+</body>
+</html>
+<!-- js files start -->
+<script src="arrow/assets/libs/jquery.js"></script>
+<script src="arrow/assets/js/bar.js"></script>
+<script src="arrow/assets/js/app.js"></script>
+<script>
+      var maxWidth=640,maxHeight=960;
+      var currWidth=document.body.clientWidth;
+      var currHeight=document.body.clientHeight;
+      var scale=Math.min(currWidth/maxWidth,currHeight/maxHeight); //固定比率 变尺寸
+      $("#grid").css({
+      "-webkit-transform":"scale("+scale+","+scale+")",
+      "-moz-transform":"scale("+scale+","+scale+")",
+      "transform":"scale("+scale+","+scale+")"
+    });
+  </script>
+<div style="display:none">
+<script type="text/javascript">tongji();</script>
+</div>
+</body>
+</html>
