@@ -1,0 +1,105 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>璐璐我爱你</title>
+<body onclick="build()">
+<style>
+    canvas,html,body {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<p style="color: #ffffff;position: fixed;margin: auto;text-align: center;width: 100%;top: 50%;font-size: 35px;">i love you</p>
+<script src="./js/pixi.min.js"></script>
+<script>
+
+    let Application = PIXI.Application,
+        Container = PIXI.Container,
+        loader = PIXI.loader,
+        resources = PIXI.loader.resources,
+        Graphics = PIXI.Graphics,
+        TextureCache = PIXI.utils.TextureCache,
+        Sprite = PIXI.Sprite,
+    TextStyle = PIXI.TextStyle,
+        Text = PIXI.Text;
+
+    //Create a Pixi Application
+    let app = new Application({
+        width: 414,
+        height: 736,
+        antialiasing: true,
+        transparent: false,
+        resolution: 1,
+        smoothProperty: 0,
+        powerPreference: 'high-performance',
+        backgroundColor:'0xffffff'
+        }
+    );
+    //Add the canvas that Pixi automatically created for you to the HTML document
+    document.body.appendChild(app.view);
+
+    function build() {
+        console.log('build')
+        this.vertices = [];
+        for(let i=0; i<30; i++) {
+            var step = i / 30 * (Math.PI * 2);
+            var vector = {
+                x: (30 * Math.pow(Math.sin(step), 3)),
+                y: -(30 * Math.cos(step) - 10 * Math.cos(2 * step) - 4 * Math.cos(3 * step) - 2*Math.cos(4 * step))
+            }
+            this.vertices.push(vector);
+        }
+
+        //love
+        let love = new Graphics();
+        love.beginFill(0xfd406f);
+        love.lineStyle(1, 0xfd406f, 1);
+        love.moveTo(this.vertices[0].x, this.vertices[0].y);
+        this.vertices.map(function(v){
+            love.lineTo(v.x, v.y);
+        });
+        love.x = Math.random()*414;
+        love.y = 736;
+        app.stage.addChild(love);
+        app.ticker.add(delta => play(delta));
+
+        let vx = Math.random()+1,
+            vy = Math.random() + 2,
+            vvx = 0.1*vx,
+            rv = 0.2*Math.random()-0.1,
+            rvv = rv * 0.01;
+        love.rotation = 0.2*Math.random()-0.1;
+        love.alpha = Math.random()*0.5;
+        function play(delta) {
+            love.x -= vx;
+            love.y -= vy;
+            love.rotation -= rv;
+            if (love.x < 256 / 2) {
+                vx -=vvx;
+            } else {
+                vx +=vvx;
+            }
+            if (love.rotation <= 0) {
+                rv -=rvv;
+            } else {
+                rv +=rvv;
+            }
+        }
+    }
+    let num = 1;
+//    app.stage.on('pointerdown', onButtonDown)
+    let stage = document.getElementsByTagName('canvas')[0];
+    setInterval(function(){
+        for(var i=0;i<num;i++){
+            build();
+        }
+        num>10||num++;
+
+    },300)
+
+
+
+</script>
+</body>
+
