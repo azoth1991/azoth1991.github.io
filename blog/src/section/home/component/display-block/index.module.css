@@ -1,0 +1,24 @@
+.cardList {
+    display: flex;
+    gap: 20px;
+    .card {
+        background-color: rgb(24, 24, 27);
+        width:200px;
+        height:200px;
+        border-radius: 8px;
+        overflow: hidden;
+        &::before {
+            content: '';
+            background-color: rgb(146, 139, 249);
+            width: 140px;
+            height: 140px;
+            filter: blur(100px);
+            position: relative;
+            display: block;
+            left: -70px;
+            top: -70px;
+            transform: translate(var(--mouse-x,-1000),var(--mouse-y,-1000));
+            opacity: var(--mouse-opacity);
+        }
+    }
+}

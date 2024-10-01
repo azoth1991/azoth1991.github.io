@@ -1,0 +1,44 @@
+{
+  // Git
+  "git.autofetch": true,
+  // Theme (每个人有自己喜欢的主题，喜欢的可以去掉注释拷贝到 user setting.json )
+  // "workbench.colorTheme": "GitHub Plus",
+  // "workbench.iconTheme": "material-icon-theme",
+  // Emmet
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  // Format
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  // cSpell
+  "cSpell.words": [
+    "ahooks",
+    "catmull",
+    "Depay",
+    "forex",
+    "formator",
+    "Hori",
+    "keepday",
+    "simplebar",
+    "Swiper",
+    "umami",
+    "webp"
+  ],
+  "terminal.integrated.scrollback": 10000
+}
