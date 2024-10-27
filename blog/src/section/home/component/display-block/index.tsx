@@ -1,4 +1,5 @@
 import { PROJECT_CONFIG } from "@/constant/home";
+import Link from "next/link";
 import Style from "./index.module.css";
 import dynamic from "next/dynamic";
 const AnimateCard = dynamic(() => import("@/component/animate-card"), {
@@ -8,13 +9,15 @@ const AnimateCard = dynamic(() => import("@/component/animate-card"), {
 const DisplayBlock = () => {
   return (
     <div className={Style.cardList}>
-      {PROJECT_CONFIG.map(({ title, des }) => {
+      {PROJECT_CONFIG.map(({ title, des, link }) => {
         return (
           <AnimateCard key={title}>
-            <div className={Style.card}>
-              <div>{title}</div>
-              <div>{des}</div>
-            </div>
+            <Link href={link}>
+              <div className={Style.card}>
+                <div>{title}</div>
+                <div>{des}</div>
+              </div>
+            </Link>
           </AnimateCard>
         );
       })}

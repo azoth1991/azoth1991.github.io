@@ -1,6 +1,7 @@
 import { CSSProperties, ReactNode, useEffect, useMemo } from "react";
 import Style from "./index.module.css";
 import useGame from "./hook/useGame";
+import generateColor from "@/util/generateColor";
 export const gameConfig = {
   column: 4,
   row: 4,
@@ -24,7 +25,6 @@ const Game2048 = () => {
   const { grid, moveLeft, moveRight, moveUp, moveDown } = useGame({
     initData,
   });
-  console.log("grid", grid);
 
   const gameStyle: GameStyle = useMemo(() => {
     return {
@@ -48,6 +48,9 @@ const Game2048 = () => {
             className={
               Style.numberCell + " " + (item === null ? Style.hide : "")
             }
+            style={{
+              background: generateColor(Number(item)),
+            }}
             key={Math.random()}
           >
             {item !== 0 ? item : ""}

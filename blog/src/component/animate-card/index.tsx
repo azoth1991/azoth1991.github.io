@@ -1,3 +1,5 @@
+"use client";
+
 import { CSSProperties, ReactNode, useMemo, useRef } from "react";
 import { useMouse } from "ahooks";
 type AnimateCardType = {

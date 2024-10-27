@@ -35,7 +35,6 @@
                 padding: 8px;
                 background-clip: content-box;
                 box-sizing: border-box;
-                background: #7d53de;
                 color: #fff;
                 font-size: 2rem;
                 background-clip: content-box;
@@ -44,6 +43,7 @@
                 justify-content: center;
                 align-items: center;
                 float: left;
+                border: 1px solid blueviolet;
             }
             .hide {
                 background: aqua;

@@ -1,10 +1,12 @@
 export const PROJECT_CONFIG = [
   {
-    title: "20481",
+    title: "2048 Game",
     des: "2048 Game",
+    link: "/game2048",
   },
   {
-    title: "20482",
-    des: "2048 Game",
+    title: "tic tac toe",
+    des: "tic tac toe",
+    link: "/tic-tac-toe",
   },
 ];
