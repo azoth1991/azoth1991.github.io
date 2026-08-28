@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { BASE_URL } from '../consts';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const featured = posts.filter((post) => post.data.featured).slice(0, 3);
+---
+
+<BaseLayout title="Azoth — Design, Code & Digital Gardens" description="Notes on frontend engineering, creative coding, and thoughtful design.">
+	<section class="relative flex min-h-[78vh] items-center overflow-hidden py-24">
+		<div class="hero-orb pointer-events-none absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30 blur-3xl"></div>
+		<div class="container relative z-10">
+			<p class="eyebrow mb-5">Designer × Developer</p>
+			<h1 class="max-w-4xl text-5xl font-semibold leading-[1.08] tracking-[-.045em] sm:text-7xl">
+				Between structure and imagination,<br/><span class="gradient-text">I build digital experiences with soul.</span>
+			</h1>
+			<p class="mt-7 max-w-2xl text-lg text-[var(--muted)] sm:text-xl">
+				I'm Azoth, exploring <span id="typed" class="font-medium text-[var(--text)]">frontend engineering</span>. This is where I collect technical notes, design observations, and creative experiments.
+			</p>
+			<div class="mt-10 flex flex-wrap gap-3">
+				<a class="rounded-full bg-[var(--text)] px-6 py-3 text-sm font-semibold text-[var(--bg)] transition hover:scale-[1.03]" href={`${BASE_URL}/blog/`}>Read the writing →</a>
+				<a class="glass rounded-full px-6 py-3 text-sm font-semibold transition hover:border-[var(--accent)]" href={`${BASE_URL}/playground/`}>Explore the playground</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="container py-20">
+		<div class="reveal mb-10 flex items-end justify-between gap-6">
+			<div><p class="eyebrow">Selected writing</p><h2 class="mt-2 text-3xl font-semibold tracking-tight">Featured Essays</h2></div>
+			<a class="text-sm text-[var(--muted)] hover:text-[var(--accent)]" href={`${BASE_URL}/blog/`}>View all →</a>
+		</div>
+		<div class="grid gap-5 md:grid-cols-3">{featured.map((post) => <PostCard post={post} />)}</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.hero-orb { background: conic-gradient(from 180deg, var(--accent), transparent 35%, var(--accent-2), transparent 75%, var(--accent)); animation: drift 12s ease-in-out infinite alternate; }
+	@keyframes drift { to { transform: translate(-45%, -55%) rotate(30deg) scale(1.15); } }
+</style>
+
+<script>
+	const words = ['frontend engineering', 'creative coding', 'product design', 'open source'];
+	const target = document.querySelector('#typed');
+	let index = 0;
+	if (target && !matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => {
+		index = (index + 1) % words.length;
+		target.animate([{ opacity: 0, transform: 'translateY(4px)' }, { opacity: 1, transform: 'none' }], { duration: 350 });
+		target.textContent = words[index];
+	}, 2200);
+</script>

@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SearchPosts from '../../components/SearchPosts';
+import { BASE_URL } from '../../consts';
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a,b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).map((post) => ({ id: post.id, title: post.data.title, description: post.data.description, tags: post.data.tags, date: post.data.pubDate.toLocaleDateString('en-US') }));
+---
+<BaseLayout title="Writing — Azoth" description="Essays on frontend engineering, design, and creative coding.">
+  <section class="container py-20">
+    <p class="eyebrow">Writing</p><h1 class="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">Essays & Notes</h1>
+    <p class="mb-10 mt-4 max-w-xl text-[var(--muted)]">Exploring the edges of technology and the thinking behind the work.</p>
+    <SearchPosts client:load posts={posts} base={BASE_URL} />
+  </section>
+</BaseLayout>

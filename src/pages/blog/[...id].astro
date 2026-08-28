@@ -1,0 +1,51 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Giscus from '../../components/Giscus.astro';
+import { BASE_URL } from '../../consts';
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { id: post.id }, props: { post, posts } }));
+}
+const { post, posts } = Astro.props;
+const { Content, headings } = await render(post);
+const sorted = [...posts].sort((a,b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const current = sorted.findIndex((item) => item.id === post.id);
+const previous = sorted[current + 1]; const next = sorted[current - 1];
+const tocHeadings = headings.filter((heading) => heading.depth <= 3);
+---
+<BaseLayout title={`${post.data.title} — Azoth`} description={post.data.description} image={post.data.cover} type="article">
+  <div id="reading-progress" class="fixed left-0 top-0 z-[60] h-0.5 w-0 bg-[var(--accent)]"></div>
+  <article class="container py-16">
+    <header class="mx-auto max-w-3xl text-center">
+      <div class="mb-4 flex justify-center gap-2">{post.data.tags.map((tag: string) => <span class="text-xs text-[var(--accent)]">#{tag}</span>)}</div>
+      <h1 class="text-4xl font-semibold leading-tight tracking-[-.035em] sm:text-6xl">{post.data.title}</h1>
+      <p class="mx-auto mt-5 max-w-2xl text-lg text-[var(--muted)]">{post.data.description}</p>
+      <time class="mt-6 block text-sm text-[var(--muted)]">{post.data.pubDate.toLocaleDateString('en-US', { dateStyle: 'long' })}</time>
+    </header>
+    <div class="mx-auto mt-16 grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,46rem)_13rem]">
+      <div class="prose"><Content /></div>
+      {tocHeadings.length > 0 && <aside class="hidden lg:block">
+        <nav class="sticky top-24 border-l border-[var(--line)] pl-5" aria-label="Table of contents">
+          <p class="mb-3 text-xs font-semibold">On this page</p>
+          {tocHeadings.map((heading) => (
+            <a data-toc class:list={['toc-link block py-1 text-xs text-[var(--muted)] transition hover:text-[var(--accent)]', heading.depth === 3 && 'pl-3']} href={`#${heading.slug}`}>{heading.text}</a>
+          ))}
+        </nav>
+      </aside>}
+    </div>
+    <nav class="mx-auto mt-16 grid max-w-3xl gap-3 border-t border-[var(--line)] pt-8 sm:grid-cols-2">{previous && <a class="card p-4 text-sm" href={`${BASE_URL}/blog/${previous.id}/`}><span class="text-xs text-[var(--muted)]">Previous</span><strong class="mt-1 block">{previous.data.title}</strong></a>}{next && <a class="card p-4 text-right text-sm sm:col-start-2" href={`${BASE_URL}/blog/${next.id}/`}><span class="text-xs text-[var(--muted)]">Next</span><strong class="mt-1 block">{next.data.title}</strong></a>}</nav>
+    <div class="mx-auto max-w-3xl"><Giscus /></div>
+  </article>
+</BaseLayout>
+<script>
+  const progress = document.querySelector<HTMLElement>('#reading-progress');
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-toc]')];
+  const update = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    if (progress) progress.style.width = `${max ? scrollY / max * 100 : 0}%`;
+    let active = ''; document.querySelectorAll('.prose h2[id], .prose h3[id]').forEach((heading) => { if (heading.getBoundingClientRect().top < 140) active = heading.id; });
+    links.forEach((link) => link.style.color = link.hash === `#${active}` ? 'var(--accent)' : '');
+  };
+  addEventListener('scroll', update, { passive: true }); update();
+</script>

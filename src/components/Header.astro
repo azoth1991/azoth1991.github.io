@@ -1,0 +1,29 @@
+---
+import { BASE_URL } from '../consts';
+const base = `${BASE_URL}/`;
+const links = [['Writing', 'blog/'], ['Playground', 'playground/'], ['About', 'about/']];
+---
+<header class="glass sticky top-0 z-50 border-x-0 border-t-0">
+  <nav class="container flex h-16 items-center justify-between" aria-label="Main navigation">
+    <a class="text-lg font-bold tracking-[-.04em]" href={base}>AZOTH<span class="text-[var(--accent)]">.</span></a>
+    <div class="hidden items-center gap-7 sm:flex">
+      {links.map(([label, path]) => <a class="text-sm text-[var(--muted)] transition hover:text-[var(--text)]" href={`${base}${path}`}>{label}</a>)}
+    </div>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" class="grid size-9 place-items-center rounded-full border border-[var(--line)]" aria-label="Toggle color theme" title="Toggle theme">◐</button>
+      <button id="menu-toggle" class="grid size-9 place-items-center rounded-full border border-[var(--line)] sm:hidden" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="container hidden border-t border-[var(--line)] py-4 sm:hidden">
+    {links.map(([label, path]) => <a class="block py-2 text-sm text-[var(--muted)]" href={`${base}${path}`}>{label}</a>)}
+  </div>
+</header>
+<script>
+  const themeButton = document.querySelector('#theme-toggle');
+  themeButton?.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next; localStorage.setItem('theme', next);
+  });
+  const menuButton = document.querySelector('#menu-toggle'); const menu = document.querySelector('#mobile-menu');
+  menuButton?.addEventListener('click', () => { menu?.classList.toggle('hidden'); menuButton.setAttribute('aria-expanded', String(!menu?.classList.contains('hidden'))); });
+</script>

@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { BASE_URL } from '../../consts';
+---
+<BaseLayout title="Gravity Particle Field — Playground" description="A lightweight interactive Canvas particle experiment.">
+  <section class="container py-10"><a class="text-sm text-[var(--muted)] hover:text-[var(--accent)]" href={`${BASE_URL}/playground/`}>← Back to playground</a><div class="mt-6"><p class="eyebrow">Canvas experiment</p><h1 class="mt-2 text-3xl font-semibold">Gravity Particle Field</h1><p class="mt-2 text-sm text-[var(--muted)]">Move your pointer or touch the canvas to reshape the particles' paths.</p></div>
+    <canvas id="field" class="mt-8 h-[65vh] w-full touch-none rounded-3xl border border-[var(--line)] bg-[#070910]" aria-label="Interactive particle animation"></canvas>
+  </section>
+</BaseLayout>
+<script>
+  const canvas = document.querySelector<HTMLCanvasElement>('#field')!; const ctx = canvas.getContext('2d')!;
+  let width = 0, height = 0, frame = 0; const pointer = { x: -9999, y: -9999 };
+  const particles = Array.from({ length: 90 }, () => ({ x: Math.random(), y: Math.random(), vx: 0, vy: 0, size: .6 + Math.random() * 1.5 }));
+  function resize() { const ratio = Math.min(devicePixelRatio, 2); width = canvas.clientWidth; height = canvas.clientHeight; canvas.width = width * ratio; canvas.height = height * ratio; ctx.setTransform(ratio,0,0,ratio,0,0); }
+  function move(event: PointerEvent) { const rect = canvas.getBoundingClientRect(); pointer.x = event.clientX - rect.left; pointer.y = event.clientY - rect.top; }
+  function draw() { ctx.fillStyle = 'rgba(7,9,16,.18)'; ctx.fillRect(0,0,width,height); for (const p of particles) { let x=p.x*width, y=p.y*height; const dx=pointer.x-x, dy=pointer.y-y, distance=Math.max(Math.hypot(dx,dy),50); if(distance<260){p.vx+=dx/distance*.018;p.vy+=dy/distance*.018;} p.vx*=.985;p.vy*=.985;p.x=(x+p.vx)/width;p.y=(y+p.vy)/height; if(p.x<0)p.x=1;if(p.x>1)p.x=0;if(p.y<0)p.y=1;if(p.y>1)p.y=0; ctx.beginPath();ctx.fillStyle=`rgba(139,135,255,${.4+p.size/3})`;ctx.arc(p.x*width,p.y*height,p.size,0,Math.PI*2);ctx.fill(); } frame=requestAnimationFrame(draw); }
+  addEventListener('resize', resize); canvas.addEventListener('pointermove', move); canvas.addEventListener('pointerleave',()=>pointer.x=-9999); resize(); if (!matchMedia('(prefers-reduced-motion: reduce)').matches) draw(); else { draw(); cancelAnimationFrame(frame); }
+</script>

@@ -1,0 +1,9 @@
+---
+import { BASE_URL } from '../consts';
+---
+<footer class="mt-24 border-t border-[var(--line)] py-10">
+  <div class="container flex flex-col justify-between gap-3 text-sm text-[var(--muted)] sm:flex-row">
+    <p>© {new Date().getFullYear()} Azoth. Built with Astro.</p>
+    <div class="flex gap-5"><a class="hover:text-[var(--text)]" href="https://github.com/azoth1991" rel="me">GitHub</a><a class="hover:text-[var(--text)]" href={`${BASE_URL}/rss.xml`}>RSS</a></div>
+  </div>
+</footer>

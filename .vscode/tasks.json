@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Astro: Build",
+			"type": "shell",
+			"command": "pnpm",
+			"args": [
+				"build"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build",
+			"options": {
+				"env": {
+					"PATH": "/Users/suzyli/.nvm/versions/node/v22.23.2/bin:${env:PATH}"
+				}
+			}
+		}
+	]
+}

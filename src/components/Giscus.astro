@@ -1,0 +1,10 @@
+---
+const repo = import.meta.env.PUBLIC_GISCUS_REPO;
+const repoId = import.meta.env.PUBLIC_GISCUS_REPO_ID;
+const category = import.meta.env.PUBLIC_GISCUS_CATEGORY ?? 'Announcements';
+const categoryId = import.meta.env.PUBLIC_GISCUS_CATEGORY_ID;
+const enabled = repo && repoId && categoryId;
+---
+{enabled && <section class="mt-16 border-t border-[var(--line)] pt-10" aria-label="Comments">
+  <script is:inline src="https://giscus.app/client.js" data-repo={repo} data-repo-id={repoId} data-category={category} data-category-id={categoryId} data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async></script>
+</section>}

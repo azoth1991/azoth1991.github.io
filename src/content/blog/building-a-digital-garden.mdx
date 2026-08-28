@@ -1,0 +1,44 @@
+---
+title: "Building a Sustainable Digital Garden with Astro"
+description: "The design decisions behind this blog, from its content model and performance boundaries to deployment."
+pubDate: 2026-08-28
+tags: [Astro, Frontend, Design]
+featured: true
+draft: false
+---
+
+## Why a digital garden?
+
+A traditional blog is an archive ordered by time. A digital garden gives ideas room to keep growing. The goal here is not publishing frequency, but a **low-friction writing system**: adding one Markdown file is enough to validate, build, and publish a new essay.
+
+## Separating content from presentation
+
+Astro Content Collections provide a structured contract for frontmatter:
+
+```ts
+const schema = z.object({
+  title: z.string(),
+  pubDate: z.coerce.date(),
+  tags: z.array(z.string()),
+});
+```
+
+The content remains portable while the interface can evolve independently. Even if the rendering framework changes one day, every essay remains plain text.
+
+### Progressive enhancement
+
+Search and theme switching require a little JavaScript; everything else ships as static HTML by default. This keeps the site readable on slow networks and even when scripts fail.
+
+## Performance as a design constraint
+
+Motion should clarify hierarchy rather than compete for attention. This site follows three rules:
+
+1. Prefer `transform` and `opacity`;
+2. Cap the Canvas pixel ratio and particle count;
+3. Respect `prefers-reduced-motion`.
+
+> Restraint does not mean less expression. It means giving every expression a reason.
+
+## What comes next
+
+A digital garden is never truly “finished.” Next, I plan to strengthen the links between essays and add more small, focused frontend experiments.

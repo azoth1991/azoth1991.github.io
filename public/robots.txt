@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://azoth1991.github.io/sitemap-index.xml
