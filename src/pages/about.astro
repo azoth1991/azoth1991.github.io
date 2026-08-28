@@ -1,6 +1,215 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const skills = [
+  'React',
+  'TypeScript',
+  'Next.js',
+  'Micro-frontends',
+  'Design Systems',
+  'AI-assisted Engineering',
+  'RAG',
+  'Playwright',
+  'Web Performance',
+  'Accessibility',
+];
+
+const experience = [
+  {
+    company: 'ByteDance (TikTok)',
+    url: 'https://www.bytedance.com/en/',
+    role: 'Senior Frontend Software Engineer / Tech Lead',
+    location: 'Seattle, WA',
+    period: 'Dec 2024 — Present',
+    highlights: [
+      'Drive the frontend technical roadmap and architecture for TikTok E-Commerce enterprise customer support and diagnostic platforms.',
+      'Architected a TypeScript and Eino-based diagnostic agent platform with real-time workflows that automatically resolved 40% of standard operational failures.',
+      'Designed scalable state and dual-mode knowledge-base interfaces for RAG and prompt workflows, reducing token overhead by 80%.',
+      'Built intent-recognition chatbot interfaces and dynamic workspace triggers that cut tool-handling and agent transaction time by 28%.',
+    ],
+  },
+  {
+    company: 'Decode Global',
+    url: 'https://decode.global/',
+    role: 'Senior Frontend Developer',
+    period: 'Feb 2024 — Dec 2024',
+    highlights: [
+      'Led frontend technical design for a blockchain trading platform focused on highly responsive interactions and precise visual execution.',
+      'Architected a modular cross-platform component library with React, Redux, and Webpack.',
+      'Integrated end-to-end client telemetry for visual defects, network latency, and browser memory usage.',
+    ],
+  },
+  {
+    company: 'Tencent',
+    url: 'https://www.tencent.com/en-us/',
+    role: 'Senior Frontend Developer / Engineering Lead',
+    location: 'Shanghai, China',
+    period: 'May 2019 — Feb 2024',
+    highlights: [
+      'Led a team of six engineers building B2B marketing SaaS data-visualization tools and automated customer-journey workflows.',
+      'Designed a drag-and-drop node orchestration editor and a resilient micro-frontend platform powered by Webpack Module Federation.',
+      'Engineered e-commerce live-streaming modules supporting up to 500,000 peak QPS without UI frame lag.',
+      'Built a Slate.js rich-text editor and an automated server-rendering pipeline with Node.js and Puppeteer.',
+    ],
+  },
+];
 ---
-<BaseLayout title="About — Azoth" description="About Azoth and this digital garden.">
-  <section class="container py-20"><div class="mx-auto max-w-3xl"><p class="eyebrow">About</p><h1 class="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">Hello, I'm Azoth.</h1><div class="prose mt-10"><p>I'm a developer who stays curious about the space where design and engineering meet. I enjoy breaking complex problems into digital experiences that feel clear, reliable, and delightful.</p><h2>This website</h2><p>This is a long-lived digital garden: home to polished technical essays, ideas still taking shape, and experiments made for the browser. The website itself is part of the experiment.</p><h2>Current interests</h2><ul><li>Modern web engineering and performance</li><li>Design systems and interaction details</li><li>Creative coding, Canvas, and WebGL</li><li>Open-source tools and knowledge management</li></ul></div></div></section>
+<BaseLayout
+  title="About Wen Zhou — Azoth"
+  description="Wen Zhou is a senior frontend engineer and tech lead working on scalable web systems, AI-native products, and thoughtful user experiences."
+>
+  <section class="container about-hero">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">About Me</p>
+      <h1>Wen Zhou</h1>
+      <p class="hero-role">Senior Frontend Engineer <span aria-hidden="true">·</span> Tech Lead</p>
+      <p class="hero-intro">
+        I build scalable web platforms and AI-native product experiences at the intersection of
+        engineering, design, and product. Over more than a decade, I’ve led frontend architecture,
+        design systems, and high-throughput applications for teams at ByteDance and Tencent.
+      </p>
+      <div class="hero-meta" aria-label="Profile details">
+        <span>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Seattle, WA
+        </span>
+        <a href="mailto:zhouwen1012@gmail.com">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Get in touch
+        </a>
+      </div>
+    </div>
+
+    <aside class="focus-card card reveal" aria-labelledby="focus-title">
+      <p class="eyebrow" id="focus-title">Currently focused on</p>
+      <p>AI-native engineering workflows, enterprise UX, and frontend systems that stay fast as they scale.</p>
+      <div class="signal" aria-hidden="true"><span></span> Building at TikTok</div>
+    </aside>
+  </section>
+
+  <section class="container section reveal" aria-labelledby="expertise-title">
+    <div class="section-heading">
+      <p class="eyebrow">Expertise</p>
+      <h2 id="expertise-title">Systems thinking,<br />hands-on execution.</h2>
+    </div>
+    <div>
+      <p class="section-lede">
+        I turn complex technical constraints into reliable, accessible experiences—from architecture
+        and state models to the interaction details people feel.
+      </p>
+      <ul class="skill-list" aria-label="Core skills">
+        {skills.map((skill) => <li>{skill}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="container section experience-section" aria-labelledby="experience-title">
+    <div class="section-heading reveal">
+      <p class="eyebrow">Experience</p>
+      <h2 id="experience-title">Selected work</h2>
+    </div>
+    <div class="timeline">
+      {experience.map((job) => (
+        <article class="experience-item reveal">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <header>
+            <div>
+              <h3>
+                <a href={job.url} target="_blank" rel="noreferrer">
+                  {job.company}
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                </a>
+              </h3>
+              <p class="role">{job.role}</p>
+            </div>
+            <div class="job-meta">
+              <time>{job.period}</time>
+              {job.location && <span>{job.location}</span>}
+            </div>
+          </header>
+          <ul>
+            {job.highlights.map((highlight) => <li>{highlight}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="container closing reveal">
+    <p class="eyebrow">Beyond the résumé</p>
+    <h2>I’m always curious about better ways to build.</h2>
+    <p>
+      This site is my digital garden for notes on frontend architecture, AI-assisted development,
+      creative coding, and the small design decisions that make software feel right.
+    </p>
+    <a href="/blog/">Read the writing <span aria-hidden="true">→</span></a>
+  </section>
 </BaseLayout>
+
+<style>
+  .about-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(18rem, .7fr);
+    gap: clamp(3rem, 8vw, 7rem);
+    align-items: end;
+    padding-block: clamp(5rem, 12vw, 9rem);
+  }
+
+  h1, h2, h3, p { margin: 0; }
+  h1 { margin-top: .55rem; font-size: clamp(3.5rem, 9vw, 7rem); line-height: .95; letter-spacing: -.065em; }
+  .hero-role { margin-top: 1.35rem; color: var(--accent); font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 650; }
+  .hero-role span { margin-inline: .45rem; color: var(--muted); }
+  .hero-intro { max-width: 48rem; margin-top: 2rem; color: var(--muted); font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.7; }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 1.35rem; margin-top: 2rem; color: var(--muted); font-size: .92rem; }
+  .hero-meta span, .hero-meta a { display: inline-flex; align-items: center; gap: .45rem; }
+  .hero-meta a { color: var(--text); font-weight: 650; }
+  .hero-meta a:hover { color: var(--accent); }
+  .hero-meta svg { width: 1rem; fill: none; stroke: currentColor; stroke-width: 1.8; }
+
+  .focus-card { padding: 1.6rem; }
+  .focus-card > p:nth-child(2) { margin-top: .85rem; color: var(--muted); line-height: 1.65; }
+  .signal { display: flex; align-items: center; gap: .55rem; margin-top: 1.4rem; padding-top: 1.1rem; border-top: 1px solid var(--line); font-size: .8rem; font-weight: 650; }
+  .signal span { width: .5rem; height: .5rem; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 .25rem color-mix(in srgb, #22c55e 15%, transparent); }
+
+  .section { display: grid; grid-template-columns: minmax(13rem, .65fr) minmax(0, 1.35fr); gap: clamp(3rem, 8vw, 7rem); padding-block: clamp(4.5rem, 9vw, 7rem); border-top: 1px solid var(--line); }
+  .section-heading h2, .closing h2 { margin-top: .65rem; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.1; letter-spacing: -.04em; }
+  .section-lede { max-width: 43rem; color: var(--muted); font-size: 1.15rem; }
+  .skill-list { display: flex; flex-wrap: wrap; gap: .65rem; margin: 2rem 0 0; padding: 0; list-style: none; }
+  .skill-list li { padding: .48rem .8rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: .83rem; font-weight: 600; }
+
+  .experience-section { align-items: start; }
+  .timeline { position: relative; }
+  .timeline::before { content: ''; position: absolute; inset: .5rem auto 0 -.05rem; width: 1px; background: var(--line); }
+  .experience-item { position: relative; padding: 0 0 4rem 2rem; }
+  .experience-item:last-child { padding-bottom: 0; }
+  .timeline-marker { position: absolute; top: .45rem; left: -.32rem; width: .6rem; height: .6rem; border: 2px solid var(--bg); border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .experience-item header { display: flex; justify-content: space-between; gap: 1.5rem; }
+  .experience-item h3 { font-size: 1.35rem; line-height: 1.25; }
+  .experience-item h3 a { display: inline-flex; align-items: center; gap: .4rem; }
+  .experience-item h3 a:hover { color: var(--accent); }
+  .experience-item h3 svg { width: 1rem; fill: none; stroke: currentColor; stroke-width: 1.8; }
+  .role { margin-top: .35rem; color: var(--muted); }
+  .job-meta { flex: none; text-align: right; color: var(--muted); font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; }
+  .job-meta span, .job-meta time { display: block; }
+  .experience-item ul { margin: 1.5rem 0 0; padding-left: 1.2rem; color: color-mix(in srgb, var(--text) 82%, var(--muted)); }
+  .experience-item li { padding-left: .35rem; }
+  .experience-item li + li { margin-top: .65rem; }
+  .experience-item li::marker { color: var(--accent); }
+
+  .closing { margin-bottom: clamp(4rem, 9vw, 7rem); padding: clamp(2rem, 5vw, 4rem); border: 1px solid var(--line); border-radius: 1.5rem; background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 8%, var(--surface)), var(--surface)); }
+  .closing h2 { max-width: 42rem; }
+  .closing > p:not(.eyebrow) { max-width: 44rem; margin-top: 1.25rem; color: var(--muted); }
+  .closing a { display: inline-flex; gap: .5rem; margin-top: 1.7rem; color: var(--accent); font-weight: 700; }
+  .closing a:hover span { transform: translateX(.25rem); }
+  .closing a span { transition: transform .2s ease; }
+
+  @media (max-width: 760px) {
+    .about-hero, .section { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-hero { align-items: start; }
+    .focus-card { max-width: 30rem; }
+    .experience-item header { display: block; }
+    .job-meta { margin-top: .75rem; text-align: left; }
+    .job-meta span, .job-meta time { display: inline; }
+    .job-meta span::before { content: ' · '; }
+  }
+</style>
