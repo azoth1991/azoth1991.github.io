@@ -1,5 +1,5 @@
 ---
-title: "RFC: Autonomous AI On-Call and Incident Remediation"
+title: "RFC: Autonomous AI On-Call bot"
 description: "A production design for safely diagnosing and remediating recurring incidents with dual-path routing, evidence-grounded agents, human approval, and continuous LLMOps evaluation."
 pubDate: 2026-08-29T12:00:00Z
 tags: [SRE, LLMOps, AI Agents, RAG, Incident Response]
