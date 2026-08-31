@@ -1,0 +1,39 @@
+---
+import { BASE_URL } from '../consts';
+
+type ChallengeId = 'filesystem';
+
+type Props = {
+  active: ChallengeId;
+};
+
+const { active } = Astro.props;
+
+const challenges: { id: ChallengeId; label: string; href: string }[] = [
+  {
+    id: 'filesystem',
+    label: 'File System',
+    href: `${BASE_URL}/playground/filesystem/`,
+  },
+];
+---
+<nav aria-label="Coding challenges" class="mb-6 overflow-x-auto border-b border-[var(--line)]">
+  <div class="flex min-w-max gap-1" role="tablist" aria-label="Challenge cases">
+    {challenges.map((challenge) => (
+      <a
+        href={challenge.href}
+        role="tab"
+        aria-selected={challenge.id === active ? 'true' : 'false'}
+        aria-current={challenge.id === active ? 'page' : undefined}
+        class:list={[
+          'relative px-4 py-3 text-sm font-semibold transition-colors after:absolute after:inset-x-2 after:bottom-0 after:h-0.5 after:rounded-full',
+          challenge.id === active
+            ? 'text-[var(--text)] after:bg-[var(--accent)]'
+            : 'text-[var(--muted)] after:bg-transparent hover:text-[var(--text)]',
+        ]}
+      >
+        {challenge.label}
+      </a>
+    ))}
+  </div>
+</nav>

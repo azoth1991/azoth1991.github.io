@@ -1,0 +1,18 @@
+---
+import ChallengeTabs from '../../components/ChallengeTabs.astro';
+import FileSystemChallenge from '../../components/FileSystemChallenge';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { BASE_URL } from '../../consts';
+---
+<BaseLayout title="File System Challenge — Playground" description="Implement an in-memory file system and run its test suite in a browser sandbox.">
+  <section class="container py-10">
+    <a class="text-sm text-[var(--muted)] hover:text-[var(--accent)]" href={`${BASE_URL}/playground/`}>← Back to playground</a>
+    <div class="mt-6 mb-8">
+      <p class="eyebrow">Coding sandbox</p>
+      <h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">File System Challenge</h1>
+      <p class="mt-2 max-w-2xl text-sm text-[var(--muted)]">Write a JavaScript implementation, execute it in an isolated worker, and inspect every test result.</p>
+    </div>
+    <ChallengeTabs active="filesystem" />
+    <FileSystemChallenge client:load />
+  </section>
+</BaseLayout>
