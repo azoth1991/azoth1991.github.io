@@ -1,0 +1,16 @@
+---
+import ChallengeTabs from '../../components/ChallengeTabs.astro';
+import FileSystemChallenge from '../../components/FileSystemChallenge';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Coding Challenges — Azoth" description="Solve coding challenges and run their test suites in an isolated browser sandbox.">
+  <section class="container py-10">
+    <div class="mb-8">
+      <p class="eyebrow">Challenge</p>
+      <h1 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Coding Challenges</h1>
+      <p class="mt-2 max-w-2xl text-sm text-[var(--muted)]">Write a JavaScript implementation, execute it in an isolated worker, and inspect every test result.</p>
+    </div>
+    <ChallengeTabs active="filesystem" />
+    <FileSystemChallenge client:load />
+  </section>
+</BaseLayout>
